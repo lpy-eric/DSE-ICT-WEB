@@ -230,8 +230,47 @@ a {
 	}
 }
 
+/* --- SCROLL INDICATOR --- */
+.scroll-indicator {
+	position: absolute;
+	bottom: 20px; /* Stick to bottom of the hero area */
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	opacity: 0.6;
+	animation: bounce 2s infinite;
+	cursor: pointer;
+	color: var(--text-color);
+}
+.scroll-indicator span {
+	font-size: 0.8rem;
+	margin-bottom: 5px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+.scroll-indicator svg {
+	width: 24px;
+	height: 24px;
+	fill: var(--text-color);
+}
 
-
+@keyframes bounce {
+	0%,
+	20%,
+	50%,
+	80%,
+	100% {
+		transform: translate(-50%, 0);
+	}
+	40% {
+		transform: translate(-50%, -10px);
+	}
+	60% {
+		transform: translate(-50%, -5px);
+	}
+}
 
 /* --- MAIN CONTAINER & GRIDS --- */
 .container {
@@ -451,8 +490,7 @@ footer {
 		flex-direction: column;
 		width: 100%;
 		position: absolute;
-		top: 100%;
-		/* Push below navbar */
+		top: var(--navbar-height); /* Starts exactly below navbar */
 		left: 0;
 		background-color: var(--white);
 		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -508,6 +546,29 @@ footer {
 
 	.timer-grid {
 		gap: 10px;
+	}
+	/* Mobile Typography */
+	.hero-aurora {
+		font-size: 3rem;
+	}
+	.main-title {
+		font-size: 5rem;
+	}
+	.time-number {
+		font-size: 3rem;
+	}
+	.timer-grid {
+		gap: 10px;
+	}
+
+	.hamburger.toggle .bar:nth-child(1) {
+		transform: translateY(8px) rotate(45deg);
+	}
+	.hamburger.toggle .bar:nth-child(2) {
+		opacity: 0;
+	}
+	.hamburger.toggle .bar:nth-child(3) {
+		transform: translateY(-8px) rotate(-45deg);
 	}
 }
 

@@ -1,22 +1,5 @@
 /* NOTE: Hamburger menu logic is in 'nav-component.js' */
 
-// 1. Dynamic Greeting (Keep your existing code)
-const greetingElement = document.getElementById('greeting');
-const hour = new Date().getHours();
-let greetingText = "Welcome to ICT Revision";
-
-if (hour < 12) {
-    greetingText = "Good Morning! Ready to revise?";
-} else if (hour < 18) {
-    greetingText = "Good Afternoon! Keep up the progress.";
-} else {
-    greetingText = "Good Evening! Time for some study.";
-}
-
-if(greetingElement) {
-    greetingElement.innerText = greetingText;
-}
-
 /* ACCORDION LOGIC FOR PAST PAPERS (Keep your existing code) */
 const yearHeaders = document.querySelectorAll('.year-header');
 yearHeaders.forEach(header => {
