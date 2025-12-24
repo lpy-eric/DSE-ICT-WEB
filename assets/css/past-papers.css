@@ -4,11 +4,11 @@
     padding: 4rem 0;
     max-width: 900px;
     margin: 0 auto;
-    /* 1. Global Font Change to Consolas */
+    /* Global Font: Consolas */
     font-family: Consolas, "Courier New", monospace; 
 }
 
-/* --- HEADER SECTION UPDATES --- */
+/* --- HEADER SECTION --- */
 
 .paper-archive__header {
     margin-bottom: 1.5rem;
@@ -16,7 +16,7 @@
 }
 
 .paper-archive__title {
-    /* MOBILE: Match the size of the years (2.5rem) */
+    /* MOBILE: 2.5rem */
     font-size: 2.5rem; 
     font-weight: 700; 
     color: #000;
@@ -26,7 +26,7 @@
 }
 
 .paper-archive__subtitle {
-    font-size: 1rem; /* Smaller on mobile to fit */
+    font-size: 1.1rem; /* Smaller on mobile */
     color: #555;
     margin-top: 0.5rem;
     font-weight: 400;
@@ -38,10 +38,14 @@
     margin-bottom: 0;
 }
 
+/* TASK 2 (Mobile): Fit the grid to text content 
+   The margin-left: 10% is kept for indentation.
+*/
 .paper-archive__grid {
+    width: 75%;  /* Mobile: Shrink to fit text */
+    margin-left: 10%;    
     list-style: none;
     padding: 0;
-    margin: 0;
     display: block;
 }
 
@@ -58,73 +62,65 @@
     width: 100%;
     border-bottom: 2px solid #000; 
     text-decoration: none;
-    position: relative;
+    position: relative; 
     overflow: hidden; 
     font-family: Consolas, "Courier New", monospace;
+    padding-bottom: 0; 
 }
 
-/* --- TYPOGRAPHY & ANIMATION (Years) --- */
+/* --- NEW: SVG ARROW IMPLEMENTATION --- */
+
+.paper-archive__link::after {
+    /* TASK 1: Use SVG Icon instead of text character */
+    content: "";
+    
+    /* Standard SVG Arrow (Black) encoded for CSS */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='2' stroke='black'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3' /%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    position: absolute;
+    right: 0;            
+    bottom: 0.8rem;      /* Adjusted base height */
+    
+    /* Size of the icon box */
+    width: 2.5rem;
+    height: 1.5rem;
+    
+    pointer-events: none; 
+    
+    /* Animation Setup */
+    opacity: 1;
+    /* TASK 1 (PC): Apply transform for positioning if needed */
+    transform: translateY(50%); 
+    transition: all 1s ease;
+}
+
+/* --- TYPOGRAPHY & ANIMATION (Global) --- */
 
 .paper-archive__text {
     display: block;
-    /* Mobile Size */
-    font-size: 2.5rem; 
     font-weight: 700; 
     color: #000;
     line-height: 1; 
-    padding: 1.5rem 0;
+    padding: 0.2rem 3rem 0.5rem 0; /* Added right padding so text doesn't hit arrow */
     
-    /* Animation Setup */
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    /* Global Mobile Font Size */
+    font-size: 2.5rem; 
+
+    /* Cut-off State */
+    transform: translateY(33%); 
+    
+    /* Snappy Animation */
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     transform-origin: bottom left;
 }
 
-/* --- PC SPECIFIC EFFECTS --- */
-
-
-@media (min-width: 768px) {
-    /* 1. Adjust the Container Height Constraints */
-    .paper-archive__link {
-        /* Ensure the container isn't too tall, so the hiding happens sooner */
-        padding-bottom: 0; 
-    }
-
-    /* 2. The Text Animation */
-    .paper-archive__text {
-        /* PC Size: Large */
-        font-size: 5rem; 
-        
-        /* Reduced vertical padding so the text sits closer to the line */
-        padding: 1rem 0; 
-        
-        /* KEY CHANGE: Increased to 35% 
-           This pushes the text down deeply. Because the parent has 
-           'overflow: hidden', the bottom part of the words will disappear 
-           behind the border line.
-        */
-        transform: translateY(33%); 
-        
-        /* Smooth snappy animation */
-        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    /* 3. Pop-up on Hover */
-    .paper-archive__link:hover .paper-archive__text {
-        /* Slide back up to 0% to reveal the full text */
-        transform: translateY(20%);
-        
-        /* Optional: Change color slightly on hover */
-        color: #333;
-    }
-    
-    /* 4. Scaling the Header for PC */
-    .paper-archive__title {
-        font-size: 5rem; 
-    }
-    
-    .paper-archive__subtitle {
-        font-size: 1.5rem;
-    }
+/* Pop-up Hover State */
+.paper-archive__link:hover .paper-archive__text {
+    transform: translateY(20%);
+    color: #333;
 }
 
 /* --- SYLLABUS LABELS (Reminders) --- */
@@ -136,14 +132,55 @@
     padding: 1rem 0;
     border-bottom: 1px solid #ccc; 
     cursor: default;
-    
-    /* Gap Adjustment: Ensure it doesn't float too far from the header */
     margin: 1rem 0 0 0; 
 }
 
+/* --- PC / DESKTOP SPECIFIC OVERRIDES --- */
+
 @media (min-width: 768px) {
+    
+    /* TASK 2 (PC): Restore fixed width so PC layout is unaffected */
+    .paper-archive__grid {
+        width: 80%;
+    }
+
+    /* Scaling Text for PC */
+    .paper-archive__text {
+        font-size: 5rem; 
+    }
+
+    /* Scaling Header for PC */
+    .paper-archive__title {
+        font-size: 5rem; 
+    }
+    
+    .paper-archive__subtitle {
+        font-size: 1.5rem;
+    }
+    
     .paper-archive__syllabus-label {
         font-size: 1.6rem; 
         padding: 1.2rem 0;
+    }
+
+    /* --- PC ARROW ADJUSTMENTS --- */
+    .paper-archive__link::after {
+        width: 4rem;      /* Larger icon for PC */
+        height: 3rem;
+        right: 10px;      
+        
+        /* TASK 1 (PC): Position adjustment 
+           Using translateY to push it down slightly if it feels too high.
+        */
+        bottom: 1rem; 
+        transform: translateY(33%); 
+    }
+
+    /* PC Hover Effect: Move Right & Fade Out 
+       Note: We keep the translateY(10%) and add translateX
+    */
+    .paper-archive__link:hover::after {
+        transform: translate(50px, 33%); 
+        opacity: 0;                  
     }
 }
