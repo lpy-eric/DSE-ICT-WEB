@@ -1,0 +1,106 @@
+/* Scope: .paper-archive */
+
+.paper-archive {
+    padding: 2rem 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.paper-archive__header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.paper-archive__title {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.paper-archive__subtitle {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Grouping Container */
+.paper-archive__group {
+    margin-bottom: 3rem; /* Spacing between the New and Old sections */
+}
+
+/* Syllabus Labels (The Reminders) */
+.paper-archive__syllabus-label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #eee;
+    color: #444;
+}
+
+/* Optional: Different colors for emphasis */
+.paper-archive__syllabus-label--new {
+    color: #2da44e; /* Green for New */
+    border-color: #2da44e;
+}
+
+.paper-archive__syllabus-label--old {
+    color: #d73a49; /* Red/Grey for Old */
+    border-color: #d73a49;
+}
+
+/* The Grid Container */
+.paper-archive__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Responsive Columns */
+@media (min-width: 600px) {
+    .paper-archive__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .paper-archive__grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.paper-archive__item {
+    margin: 0;
+    padding: 0;
+}
+
+/* Link Styles */
+.paper-archive__link {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    text-decoration: none;
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.paper-archive__link:hover,
+.paper-archive__link:focus {
+    background-color: #007bff;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-color: #007bff;
+}
+
+.paper-archive__link:active {
+    transform: translateY(0);
+}

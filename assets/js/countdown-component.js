@@ -2,6 +2,7 @@
 
 function loadCountdown() {
     // 1. Define the HTML Structure
+    // ADDED: The .scroll-indicator div inside the wrapper
     const countdownHTML = `
     <div class="hero-container">
         <div class="countdown-wrapper">
@@ -33,6 +34,13 @@ function loadCountdown() {
             <div class="date-badge">
                 Exam Date: April 24, 2026
             </div>
+        </div>
+
+        <div class="scroll-indicator" id="countdown-scroll-btn">
+            <span>Click</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"/>
+            </svg>
         </div>
     </div>
     `;
@@ -67,10 +75,26 @@ function loadCountdown() {
         }
 
         if (distance < 0) {
-            document.querySelector(".countdown-wrapper").innerHTML = "<h1>EXAM STARTED</h1>";
+            const wrapper = document.querySelector(".countdown-wrapper");
+            if(wrapper) wrapper.innerHTML = "<h1>EXAM STARTED</h1>";
         }
     };
 
     updateTimer();
     setInterval(updateTimer, 1000);
+
+    // 4. ADDED: Scroll Logic for the new button
+    const scrollBtn = document.getElementById('countdown-scroll-btn');
+    if (scrollBtn) {
+        scrollBtn.addEventListener('click', () => {
+            // Targeting the specific ID "topics" found in your index.html
+            const studyModule = document.getElementById('topics'); 
+            
+            if (studyModule) {
+                studyModule.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                console.warn("Element with ID 'topics' not found.");
+            }
+        });
+    }
 }
