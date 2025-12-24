@@ -1,0 +1,558 @@
+/* =========================================
+   Component: Husky Dog
+   Scope: .husky-dog
+   ========================================= */
+
+/* 1. Isolation & Resets */
+.husky-dog {
+  /* Set a default size, but allow parent to override via font-size or width */
+  width: 250px; 
+  height: 180px; 
+  position: relative;
+  /* The squiggly animation */
+  animation: husky-squiggly-anim 0.3s infinite;
+  /* Fix for the generic box-sizing reset */
+  box-sizing: border-box;
+}
+
+.husky-dog *,
+.husky-dog *:before,
+.husky-dog *:after {
+  box-sizing: border-box;
+  position: relative;
+  animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1) !important;
+}
+
+/* Ensure pseudo-elements are generated ONLY for the dog */
+.husky-dog div:before,
+.husky-dog div:after {
+  content: "";
+  display: block;
+  position: absolute;
+}
+
+/* 2. Layout & Shapes */
+.husky-dog:before {
+  width: 90%;
+  height: 2px;
+  background: #30508F;
+  border-radius: 2px;
+  top: 100%;
+  left: 5%;
+  z-index: 2;
+  content: "";
+  position: absolute;
+}
+
+/* Note: I removed the blue background :after element 
+   so the dog sits transparently on your website 
+*/
+
+/* --- HEAD --- */
+.husky-dog__head {
+  animation: husky-head-anim 12s none infinite;
+  position: absolute;
+  height: 45%;
+  width: 58%;
+  left: 34%;
+  top: 5%;
+  transform-origin: bottom center;
+}
+
+.husky-dog__head:before {
+  background: #30508F;
+  border-top-left-radius: 50% 40%;
+  border-top-right-radius: 50% 40%;
+  border-bottom-right-radius: 10% 60%;
+  height: 100%;
+  width: 100%;
+}
+
+.husky-dog__face {
+  animation: husky-face-anim 12s none infinite;
+  position: absolute;
+  width: 98%;
+  height: 62%;
+  top: 15%;
+  left: 2%;
+}
+
+.husky-dog__face:before {
+  z-index: 1;
+  width: 94%;
+  height: 70%;
+  left: 3%;
+  background-color: white;
+  bottom: 5%;
+  border-top-left-radius: 40% 50%;
+  border-top-right-radius: 40% 50%;
+  border-bottom-left-radius: 30% 50%;
+  border-bottom-right-radius: 30% 40%;
+}
+
+/* --- EYES --- */
+.husky-dog__eye {
+  animation: husky-eyes-anim 12s none infinite;
+  position: absolute;
+  width: 30%;
+  height: 40%;
+  background-color: white;
+  right: 45%;
+  border-top-left-radius: 55% 50%;
+  border-top-right-radius: 45% 50%;
+  z-index: 2;
+}
+
+.husky-dog__eye:before {
+  animation: husky-left-eye-anim 12s none infinite;
+  height: 15%;
+  width: 15%;
+  border-radius: 100%;
+  background: #343C60;
+  top: 45%;
+  left: 45%;
+  transform-origin: center center;
+}
+
+.husky-dog__eye + .husky-dog__eye {
+  z-index: 1;
+  right: initial;
+  left: 48%;
+  border-top-right-radius: 55% 50%;
+  border-top-left-radius: 45% 50%;
+}
+
+/* --- NOSE --- */
+.husky-dog__nose {
+  animation: husky-nose-anim 12s none infinite;
+  z-index: 2;
+  position: absolute;
+  width: 20%;
+  height: 20%;
+  top: 29%;
+  left: 42%;
+}
+
+.husky-dog__nose:after {
+  background: #30508F;
+  height: 100%;
+  width: 100%;
+  border-top-left-radius: 20% 20%;
+  border-top-right-radius: 30% 20%;
+  border-bottom-right-radius: 55% 80%;
+  border-bottom-left-radius: 50% 80%;
+}
+
+.husky-dog__nose:before {
+  height: 100%;
+  width: 200%;
+  background: white;
+  top: 50%;
+  left: -50%;
+  z-index: -1;
+  border-radius: 50%;
+}
+
+/* --- EARS --- */
+.husky-dog__ear {
+  animation: husky-left-ear-anim 12s both infinite;
+  position: absolute;
+  top: 3%;
+  left: -10%;
+  width: 48%;
+  height: 30%;
+  border-bottom-left-radius: 100% 90%;
+  border-top-left-radius: 10%;
+  transform-origin: 80% center;
+  overflow: hidden;
+  background: #30508F;
+}
+
+.husky-dog__ear:before {
+  width: 70%;
+  height: 55%;
+  border: 2px solid #30508F;
+  background: #DE6465;
+  top: 20%;
+  left: 15%;
+  transform-origin: top left;
+  transform: skewX(30deg) rotate(-5deg);
+}
+
+.husky-dog__ear:after {
+  width: 70%;
+  height: 100%;
+  border-top-left-radius: 100%;
+  background: #30508F;
+  left: 32%;
+  transform-origin: top left;
+  transform: rotate(-5deg);
+}
+
+.husky-dog__ear + .husky-dog__ear {
+  animation: husky-right-ear-anim 12s both infinite;
+  background-color: #343C60;
+  left: 15%;
+  top: 5%;
+  z-index: -1;
+  transform-origin: right center;
+}
+
+.husky-dog__ear + .husky-dog__ear:before { border-color: #343C60; }
+.husky-dog__ear + .husky-dog__ear:after { background: #343C60; }
+
+/* --- MOUTH --- */
+.husky-dog__mouth {
+  z-index: 1;
+  animation: husky-mouth-anim 12s none infinite;
+  position: absolute;
+  width: 48%;
+  height: 55%;
+  bottom: -5%;
+  left: 28%;
+  overflow: hidden;
+}
+
+.husky-dog__mouth:before,
+.husky-dog__mouth:after {
+  animation: husky-mouth-cover-left 12s none infinite;
+  width: 28%;
+  height: 100%;
+  background: white;
+  top: -50%;
+  left: 0;
+  z-index: 3;
+  transform-origin: right top;
+}
+
+.husky-dog__mouth:after {
+  animation: husky-mouth-cover-right 12s none infinite;
+  left: initial;
+  right: 0;
+  transform-origin: left top;
+}
+
+.husky-dog__lips {
+  z-index: 2;
+  height: 35%;
+  width: 100%;
+}
+
+.husky-dog__lips:before,
+.husky-dog__lips:after {
+  background: white;
+  width: calc(50% + 1.5px);
+  border-color: #9EB6D7;
+  border-width: 3px;
+  border-style: solid;
+  height: 100%;
+  border-bottom-left-radius: 65% 100%;
+  border-bottom-right-radius: 35% 50%;
+  border-top-right-radius: 50%;
+  border-right-color: transparent;
+  border-top-color: transparent;
+}
+
+.husky-dog__lips:after {
+  transform: rotateY(180deg);
+  left: initial;
+  right: 0;
+}
+
+.husky-dog__tongue {
+  animation: husky-tongue-anim 12s none infinite;
+  position: absolute;
+  height: 100%;
+  width: 44%;
+  background: #DE6465;
+  left: 25%;
+  bottom: 100%;
+  z-index: 1;
+  border-bottom-left-radius: 50% 20%;
+  border-bottom-right-radius: 50% 20%;
+}
+
+/* --- BODY & LEGS --- */
+.husky-dog__body {
+  animation: husky-body-anim 12s none infinite;
+  width: 45%;
+  height: 100%;
+  position: absolute;
+  left: 25%;
+}
+
+.husky-dog__torso {
+  position: absolute;
+  height: 55%;
+  width: 100%;
+  bottom: 0;
+}
+
+.husky-dog__torso:before {
+  background: #30508F;
+  height: 100%;
+  width: 50%;
+  transform: translateX(-20%) skewX(-30deg);
+  transform-origin: left bottom;
+  border-radius: 0 30% 0 60%;
+}
+
+.husky-dog__torso:after {
+  background: #30508F;
+  height: 100%;
+  width: 60%;
+  top: 0;
+  right: 0;
+  border-radius: 10% 40% 60% 0;
+}
+
+.husky-dog__mane {
+  animation: husky-mane-anim 12s none infinite;
+  z-index: 2;
+  position: absolute;
+  width: 31.5%;
+  height: 30%;
+  top: 44%;
+  left: 37%;
+}
+
+.husky-dog__mane:before {
+  background: white;
+  height: 40%;
+  width: 100%;
+  border-top-left-radius: 10% 50%;
+  border-top-right-radius: 20% 100%;
+  border-bottom-left-radius: 10% 50%;
+}
+
+.husky-dog__mane:after {
+  background: white;
+  top: 25%;
+  height: 76%;
+  width: 30%;
+  right: 23%;
+  border-top-right-radius: 100% 80%;
+  transform: rotate(47deg);
+  transform-origin: bottom right;
+}
+
+.husky-dog__coat {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  background: white;
+  transform-origin: bottom right;
+  left: 10%;
+  top: 21%;
+  transform: rotate(25deg) skewX(-30deg);
+}
+
+.husky-dog__legs {
+  background-color: #30508F;
+  position: absolute;
+  height: 30%;
+  width: 42%;
+  left: 23%;
+  bottom: 0;
+  border-top-left-radius: 20% 37%;
+  border-bottom-left-radius: 10% 37%;
+  border-top-right-radius: 50%;
+  z-index: 1;
+}
+
+.husky-dog__front-legs {
+  position: absolute;
+  width: 55%;
+  height: 117%;
+  bottom: 0;
+  right: -12%;
+}
+
+.husky-dog__front-legs:before {
+  width: 4%;
+  height: 6%;
+  background: transparent;
+  bottom: 0;
+  left: 47%;
+  box-shadow: -1px 0 0 #9EB6D7, -2px 0 0 #9EB6D7, 1px 0 0 #4F8EDB, 2px 0 0 #4F8EDB;
+  z-index: 2;
+  content: "";
+  position: absolute;
+}
+
+.husky-dog__leg {
+  width: 51%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  overflow: hidden;
+}
+
+.husky-dog__leg:before {
+  background: #C8DAF2;
+  height: 100%;
+  width: 100%;
+  transform: skewY(-30deg) skewX(10deg);
+  transform-origin: top right;
+}
+
+.husky-dog__leg + .husky-dog__leg {
+  right: 0;
+  transform: rotateY(180deg);
+}
+
+.husky-dog__leg + .husky-dog__leg:before {
+  background: #9EB6D7;
+}
+
+.husky-dog__hind-leg {
+  position: absolute;
+  background: #9EB6D7;
+  width: 35%;
+  height: 25%;
+  border-top-left-radius: 35% 100%;
+  border-top-right-radius: 40% 100%;
+  bottom: 0%;
+  right: 45%;
+}
+
+.husky-dog__hind-leg:before {
+  width: 6%;
+  height: 20%;
+  background: transparent;
+  bottom: 0;
+  left: 70%;
+  box-shadow: -1px 0 0 #4F8EDB, 1px 0 0 #4F8EDB;
+  content: "";
+  position: absolute;
+}
+
+/* --- TAIL --- */
+.husky-dog__tail-wrapper {
+  position: absolute;
+  width: 15%;
+  height: 6%;
+  bottom: 0;
+  right: 72%;
+  background: #343C60;
+  z-index: 0;
+  border-top-left-radius: 10% 50%;
+  border-bottom-left-radius: 10% 50%;
+}
+
+.husky-dog__tail {
+  animation: husky-tail-anim 12s none infinite;
+  height: 100%;
+  width: 4vmin;
+  right: 26%;
+  transform-origin: center right;
+  border-top-left-radius: 50% 50%;
+  border-bottom-left-radius: 50% 50%;
+  transform: rotate(26deg);
+  position: absolute;
+}
+
+/* Recursively style nested tails */
+.husky-dog__tail .husky-dog__tail {
+  right: 88%;
+}
+
+
+/* =========================================
+   Keyframes (Namespaced to avoid conflicts)
+   ========================================= */
+
+@keyframes husky-squiggly-anim {
+  0% { filter: url("#squiggly-0"); }
+  25% { filter: url("#squiggly-1"); }
+  50% { filter: url("#squiggly-2"); }
+  75% { filter: url("#squiggly-3"); }
+  100% { filter: url("#squiggly-4"); }
+}
+
+@keyframes husky-head-anim {
+  0%, 6%, 73%, 80% { transform: rotate(0); }
+  20%, 46% { transform: rotate(-14deg); }
+  40%, 60% { transform: rotate(-7deg); }
+}
+
+@keyframes husky-mouth-anim {
+  0%, 6%, 100% { transform: translateX(0); }
+  13%, 26% { transform: translateX(35%); }
+  33% { transform: translateX(0) translateY(-5%); }
+}
+
+@keyframes husky-nose-anim {
+  0%, 6% { transform: translate(0); }
+  13%, 26% { transform: translateX(100%); }
+  33% { transform: translateX(0) translateY(-15%); }
+}
+
+@keyframes husky-body-anim {
+  0%, 13%, 20% { transform: translate(0); }
+  6% { transform: translateY(3%); }
+  26% { transform: translateY(2%); }
+  33% { transform: translateY(0); }
+}
+
+@keyframes husky-mane-anim {
+  0%, 13%, 20% { transform: translate(0); }
+  6% { transform: translateY(5%); }
+  26% { transform: translateY(3%); }
+  33% { transform: translateY(0); }
+}
+
+@keyframes husky-face-anim {
+  0%, 6% { transform: translate(0); }
+  13% { transform: translateX(15%); }
+  20%, 26% { transform: translateX(15%) translateY(0); }
+  33%, 40% { transform: translateX(0) translateY(-15%); }
+  46% { transform: translateX(0) translateY(0); }
+}
+
+@keyframes husky-left-eye-anim {
+  2%, 4% { transform: scaleY(1); }
+  3% { transform: scaleY(0.3); }
+  6% { transform: translateX(0); }
+  9% { transform: scaleY(1) translateX(75%); }
+  10% { transform: scaleY(0.3) translateX(75%); }
+  13% { transform: translateX(150%); }
+  33% { transform: translateX(0) translateY(-170%); }
+  53% { transform: translateY(0); }
+}
+
+/* Reuse left-eye animation for simplicity or duplicate if strictly matching original */
+
+@keyframes husky-tongue-anim {
+  46%, 80% { transform: translateY(0); }
+  53%, 73% { transform: translateY(100%) rotate(10deg); }
+}
+
+@keyframes husky-mouth-cover-left {
+  40%, 86% { transform: rotate(0); }
+  60%, 73% { transform: rotate(90deg); }
+}
+
+@keyframes husky-mouth-cover-right {
+  40%, 86% { transform: rotate(0); }
+  60%, 73% { transform: rotate(-90deg); }
+}
+
+@keyframes husky-tail-anim {
+  6%, 13%, 20%, 48%, 50%, 52% { transform: rotate(0); }
+  10%, 26%, 46% { transform: rotate(30deg); }
+}
+
+@keyframes husky-left-ear-anim {
+  0%, 6%, 93% { transform: rotate(6deg); }
+  13%, 26% { transform: rotate(15deg); }
+  33%, 40% { transform: rotate(30deg); }
+  46%, 53% { transform: rotate(0deg); }
+}
+
+@keyframes husky-right-ear-anim {
+  0%, 6%, 93% { transform: rotateZ(-16deg) rotateY(180deg); }
+  13%, 26% { transform: rotateZ(-19deg) rotateY(180deg); }
+  33%, 37%, 40% { transform: rotateZ(-30deg) rotateY(180deg); }
+}
