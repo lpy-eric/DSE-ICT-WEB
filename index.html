@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/navbar.css">
     <link rel="stylesheet" href="assets/css/countdown.css">
+    <link rel="stylesheet" href="components/husky-dog/husky-dog.css">
 </head>
 
 <body>
@@ -91,11 +92,14 @@
         <p>&copy; 2025 HKDSE ICT Revision Hub. Eric Li.</p>
     </footer>
 
+    <div id="husky-component-container"></div>
+
     <script src="assets/js/nav-component.js"></script>
 
     <script>
         // Call the function. "true" means "I am in the root folder"
         loadNavbar(true); 
+        loadHuskyComponent('');
     </script>
 
     <script src="assets/js/script.js"></script>

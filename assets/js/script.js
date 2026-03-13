@@ -4,16 +4,19 @@
 document.addEventListener('DOMContentLoaded', function() {
     const cards = document.querySelectorAll('.topic-card');
     
-    // Map card titles to filenames
+    // Map card (tag + title) to filenames
     const pageMap = {
-        "Information Processing": "",
-        "Computer System Fundamentals": "",
-        "Internet & its Applications": "",
-        "Computational Thinking & Programming": "",
-        "Social Implications": "",
-        "Databases": "",
-        "Web Application Development": "",
-        "Algorithm & Programming": ""
+        "Compulsory A1|Information Processing": "pages/topics/compulsory-a1-information-processing.html",
+        "Compulsory A2|Information Processing": "pages/topics/compulsory-a2-information-processing.html",
+        "Compulsory B|Computer System Fundamentals": "pages/topics/compulsory-b-computer-system-fundamentals.html",
+        "Compulsory C1|Internet & its Applications": "pages/topics/compulsory-c1-internet-applications.html",
+        "Compulsory C2|Internet & its Applications": "pages/topics/compulsory-c2-internet-applications.html",
+        "Compulsory D1|Computational Thinking & Programming": "pages/topics/compulsory-d1-computational-thinking-programming.html",
+        "Compulsory D2|Computational Thinking & Programming": "pages/topics/compulsory-d2-computational-thinking-programming.html",
+        "Compulsory E|Social Implications": "pages/topics/compulsory-e-social-implications.html",
+        "Elective A|Databases": "pages/topics/elective-a-databases.html",
+        "Elective B|Web Application Development": "pages/topics/elective-b-web-application-development.html",
+        "Elective C|Algorithm & Programming": "pages/topics/elective-c-algorithm-programming.html"
     };
 
     // 1. Run Text Resizing Logic - DISABLED to ensure consistent font size check
@@ -47,7 +50,9 @@ document.addEventListener('DOMContentLoaded', function() {
         card.style.cursor = "pointer"; // Make it look clickable
         card.addEventListener('click', function() {
             const title = this.querySelector('h3').innerText;
-            const targetPage = pageMap[title];
+            const tag = this.querySelector('.topic-tag')?.innerText || '';
+            const pageKey = `${tag}|${title}`;
+            const targetPage = pageMap[pageKey];
             
             if (targetPage) {
                 window.location.href = targetPage;

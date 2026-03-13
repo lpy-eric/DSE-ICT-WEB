@@ -1,8 +1,19 @@
 // assets/js/nav-component.js
 
-function loadNavbar(isRootFolder) {
-    const rootPath = isRootFolder ? './' : '../'; 
-    const pagesPath = isRootFolder ? 'pages/' : './';
+function loadNavbar(pathConfig) {
+    let rootPath = './';
+    let pagesPath = 'pages/';
+
+    if (typeof pathConfig === 'boolean') {
+        rootPath = pathConfig ? './' : '../';
+        pagesPath = pathConfig ? 'pages/' : './';
+    } else if (typeof pathConfig === 'string') {
+        rootPath = pathConfig;
+        pagesPath = `${pathConfig}pages/`;
+    } else if (pathConfig && typeof pathConfig === 'object') {
+        rootPath = pathConfig.basePath || './';
+        pagesPath = pathConfig.pagesPath || `${rootPath}pages/`;
+    }
 
     const navbarHTML = `
     <nav class="navbar">

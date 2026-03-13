@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elective C - Algorithm & Programming</title>
+
+    <link rel="stylesheet" href="../../assets/css/base.css">
+    <link rel="stylesheet" href="../../assets/css/navbar.css">
+    <link rel="stylesheet" href="../../assets/css/hero.css">
+    <link rel="stylesheet" href="../../assets/css/topic-page.css">
+    <link rel="stylesheet" href="../../components/husky-dog/husky-dog.css">
+</head>
+
+<body>
+    <div id="navbar-placeholder"></div>
+    <div id="hero-placeholder"></div>
+
+    <main class="container" id="main-content">
+        <section class="topic-overview">
+            <h2>Elective C: Algorithm & Programming</h2>
+            <p>Strengthen algorithmic problem solving and implementation skills for more complex tasks.</p>
+            <a class="topic-back-link" href="../../index.html#topics">← Back to Study Modules</a>
+        </section>
+
+        <section class="topic-section">
+            <h3>Key Focus Areas</h3>
+            <ul>
+                <li>Algorithm design patterns and decomposition</li>
+                <li>Searching, sorting, and basic optimization concepts</li>
+                <li>Program structure, testing strategy, and debugging</li>
+            </ul>
+        </section>
+
+        <section class="topic-section">
+            <h3>Revision Tasks</h3>
+            <ul>
+                <li>Solve timed algorithm practice questions</li>
+                <li>Implement and compare different sorting methods</li>
+                <li>Write clean and reusable code snippets</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 HKDSE ICT Revision Hub. Eric Li.</p>
+    </footer>
+
+    <div id="husky-component-container"></div>
+
+    <script src="../../assets/js/nav-component.js"></script>
+    <script src="../../assets/js/ui-components.js"></script>
+    <script src="../../assets/js/hero-component.js"></script>
+
+    <script>
+        loadNavbar({ basePath: '../../', pagesPath: '../' });
+        loadHero('Elective C', 'Algorithm & Programming');
+        loadHuskyComponent('../../');
+    </script>
+</body>
+
+</html>

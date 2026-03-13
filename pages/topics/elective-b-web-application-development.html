@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elective B - Web Application Development</title>
+
+    <link rel="stylesheet" href="../../assets/css/base.css">
+    <link rel="stylesheet" href="../../assets/css/navbar.css">
+    <link rel="stylesheet" href="../../assets/css/hero.css">
+    <link rel="stylesheet" href="../../assets/css/topic-page.css">
+    <link rel="stylesheet" href="../../components/husky-dog/husky-dog.css">
+</head>
+
+<body>
+    <div id="navbar-placeholder"></div>
+    <div id="hero-placeholder"></div>
+
+    <main class="container" id="main-content">
+        <section class="topic-overview">
+            <h2>Elective B: Web Application Development</h2>
+            <p>Build modern web applications with frontend structure, interactivity, and user-focused design.</p>
+            <a class="topic-back-link" href="../../index.html#topics">← Back to Study Modules</a>
+        </section>
+
+        <section class="topic-section">
+            <h3>Key Focus Areas</h3>
+            <ul>
+                <li>HTML structure, CSS styling, and JavaScript logic</li>
+                <li>Client-side interaction and form handling</li>
+                <li>Usability, accessibility, and responsive design</li>
+            </ul>
+        </section>
+
+        <section class="topic-section">
+            <h3>Revision Tasks</h3>
+            <ul>
+                <li>Rebuild small UI components from memory</li>
+                <li>Practice DOM tasks and event-driven scripts</li>
+                <li>Check pages on mobile and desktop layouts</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 HKDSE ICT Revision Hub. Eric Li.</p>
+    </footer>
+
+    <div id="husky-component-container"></div>
+
+    <script src="../../assets/js/nav-component.js"></script>
+    <script src="../../assets/js/ui-components.js"></script>
+    <script src="../../assets/js/hero-component.js"></script>
+
+    <script>
+        loadNavbar({ basePath: '../../', pagesPath: '../' });
+        loadHero('Elective B', 'Web Application Development');
+        loadHuskyComponent('../../');
+    </script>
+</body>
+
+</html>

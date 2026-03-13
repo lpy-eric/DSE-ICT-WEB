@@ -556,3 +556,57 @@
   13%, 26% { transform: rotateZ(-19deg) rotateY(180deg); }
   33%, 37%, 40% { transform: rotateZ(-30deg) rotateY(180deg); }
 }
+
+#husky-component-container {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.husky-scroll-top {
+  pointer-events: auto;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.2s ease;
+}
+
+.husky-scroll-top:hover {
+  transform: translateY(-2px);
+}
+
+.husky-scroll-top .husky-dog {
+  width: 180px;
+  height: 130px;
+}
+
+.husky-scroll-top__hint {
+  display: inline-block;
+  background: rgba(48, 80, 143, 0.92);
+  color: #fff;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 12px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  #husky-component-container {
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .husky-scroll-top .husky-dog {
+    width: 145px;
+    height: 105px;
+  }
+}

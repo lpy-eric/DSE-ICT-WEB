@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elective A - Databases</title>
+
+    <link rel="stylesheet" href="../../assets/css/base.css">
+    <link rel="stylesheet" href="../../assets/css/navbar.css">
+    <link rel="stylesheet" href="../../assets/css/hero.css">
+    <link rel="stylesheet" href="../../assets/css/topic-page.css">
+    <link rel="stylesheet" href="../../components/husky-dog/husky-dog.css">
+</head>
+
+<body>
+    <div id="navbar-placeholder"></div>
+    <div id="hero-placeholder"></div>
+
+    <main class="container" id="main-content">
+        <section class="topic-overview">
+            <h2>Elective A: Databases</h2>
+            <p>Learn relational design, querying, and data management practices for information systems.</p>
+            <a class="topic-back-link" href="../../index.html#topics">← Back to Study Modules</a>
+        </section>
+
+        <section class="topic-section">
+            <h3>Key Focus Areas</h3>
+            <ul>
+                <li>Entity-relationship design and normalization</li>
+                <li>SQL basics: select, filter, join, and aggregate</li>
+                <li>Data integrity, security, and access control</li>
+            </ul>
+        </section>
+
+        <section class="topic-section">
+            <h3>Revision Tasks</h3>
+            <ul>
+                <li>Convert case studies into ER diagrams</li>
+                <li>Practice SQL queries with increasing complexity</li>
+                <li>Review mistakes in key/relationship definitions</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 HKDSE ICT Revision Hub. Eric Li.</p>
+    </footer>
+
+    <div id="husky-component-container"></div>
+
+    <script src="../../assets/js/nav-component.js"></script>
+    <script src="../../assets/js/ui-components.js"></script>
+    <script src="../../assets/js/hero-component.js"></script>
+
+    <script>
+        loadNavbar({ basePath: '../../', pagesPath: '../' });
+        loadHero('Elective A', 'Databases');
+        loadHuskyComponent('../../');
+    </script>
+</body>
+
+</html>

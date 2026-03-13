@@ -153,15 +153,7 @@
 		loadHero('Past Papers Database', 'The best time to start is NOW.');
 
 		// 3. Load Husky Dog Component
-		fetch('../components/husky-dog/husky-dog.html')
-			.then(response => {
-				if (!response.ok) throw new Error("Husky HTML not found");
-				return response.text();
-			})
-			.then(data => {
-				document.getElementById('husky-component-container').innerHTML = data;
-			})
-			.catch(error => console.error('Error loading husky:', error));
+		loadHuskyComponent('../');
 	</script>
 </body>
 </html>

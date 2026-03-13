@@ -1,0 +1,50 @@
+/* assets/css/topic-page.css */
+
+.topic-overview {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 1.5rem;
+}
+
+.topic-overview h2 {
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+.topic-overview p {
+    color: #475569;
+}
+
+.topic-section {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.topic-section h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.topic-section ul {
+    padding-left: 1.1rem;
+}
+
+.topic-section li {
+    margin-bottom: 0.35rem;
+}
+
+.topic-back-link {
+    display: inline-block;
+    margin-top: 0.75rem;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.topic-back-link:hover {
+    color: var(--secondary-color);
+}

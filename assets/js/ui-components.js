@@ -58,3 +58,40 @@ function fitTextToContainer(selector) {
         }
     });
 }
+
+/**
+ * Loads Husky component and binds smooth scroll-to-top behavior.
+ * @param {string} basePath - Path from current page to project root.
+ */
+function loadHuskyComponent(basePath = '') {
+    const normalizedBasePath = basePath && !basePath.endsWith('/') ? `${basePath}/` : basePath;
+
+    fetch(`${normalizedBasePath}components/husky-dog/husky-dog.html`)
+        .then(response => {
+            if (!response.ok) throw new Error('Husky HTML not found');
+            return response.text();
+        })
+        .then(huskyHtml => {
+            let container = document.getElementById('husky-component-container');
+            if (!container) {
+                container = document.createElement('div');
+                container.id = 'husky-component-container';
+                document.body.appendChild(container);
+            }
+
+            container.innerHTML = `
+                <button type="button" class="husky-scroll-top" aria-label="Back to top">
+                    ${huskyHtml}
+                    <span class="husky-scroll-top__hint">Click Husky · Back to Top</span>
+                </button>
+            `;
+
+            const huskyButton = container.querySelector('.husky-scroll-top');
+            if (huskyButton) {
+                huskyButton.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        })
+        .catch(error => console.error('Error loading husky:', error));
+}
