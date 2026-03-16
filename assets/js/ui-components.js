@@ -82,7 +82,7 @@ function loadHuskyComponent(basePath = '') {
             container.innerHTML = `
                 <button type="button" class="husky-scroll-top" aria-label="Back to top">
                     ${huskyHtml}
-                    <span class="husky-scroll-top__hint">Click Husky · Back to Top</span>
+                    <span class="husky-scroll-top__hint">Back to top</span>
                 </button>
             `;
 
@@ -91,6 +91,29 @@ function loadHuskyComponent(basePath = '') {
                 huskyButton.addEventListener('click', () => {
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 });
+            }
+
+            container.classList.add('husky-is-hidden');
+
+            if (container.dataset.scrollListenerAttached !== 'true') {
+                let lastScrollY = window.scrollY;
+
+                const handleHuskyVisibility = () => {
+                    const currentScrollY = window.scrollY;
+                    const isScrollingUp = currentScrollY < lastScrollY;
+
+                    if (isScrollingUp && currentScrollY > 0) {
+                        container.classList.remove('husky-is-hidden');
+                    } else {
+                        container.classList.add('husky-is-hidden');
+                    }
+
+                    lastScrollY = currentScrollY;
+                };
+
+                window.addEventListener('scroll', handleHuskyVisibility, { passive: true });
+                container.dataset.scrollListenerAttached = 'true';
+                handleHuskyVisibility();
             }
         })
         .catch(error => console.error('Error loading husky:', error));

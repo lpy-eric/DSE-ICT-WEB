@@ -48,3 +48,52 @@
 .topic-back-link:hover {
     color: var(--secondary-color);
 }
+
+.syllabus-table-wrap {
+    overflow-x: auto;
+    margin-top: 0.75rem;
+}
+
+.syllabus-table {
+    width: 100%;
+    min-width: 920px;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+.syllabus-table th,
+.syllabus-table td {
+    border: 1px solid #111827;
+    padding: 0.75rem;
+    vertical-align: top;
+    color: #0f172a;
+    font-size: 0.95rem;
+    line-height: 1.45;
+}
+
+.syllabus-table th {
+    text-align: center;
+    background: #f8fafc;
+    font-weight: 700;
+}
+
+.syllabus-table td ul {
+    padding-left: 1rem;
+    margin: 0;
+}
+
+.syllabus-table td li {
+    margin-bottom: 0.45rem;
+}
+
+.syllabus-table td p {
+    margin: 0 0 0.6rem;
+}
+
+@media (max-width: 768px) {
+    .syllabus-table th,
+    .syllabus-table td {
+        font-size: 0.88rem;
+        padding: 0.6rem;
+    }
+}
